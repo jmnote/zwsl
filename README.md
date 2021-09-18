@@ -2,7 +2,7 @@
 
 ```
 cd
-git clone https://raw.githubusercontent.com/jmnote/zwsl
+git clone --depth=1 https://github.com/jmnote/zwsl.git
 cd zwsl
 bash init.sh
 ```
