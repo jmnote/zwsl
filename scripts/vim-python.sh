@@ -6,7 +6,7 @@ bash ~/.zwsl/scripts/vim.sh
 # main
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-cat <<EOF
+cat <<EOF > ~/.vimrc
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
