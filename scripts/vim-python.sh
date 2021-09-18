@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# pre
+curl https://raw.githubusercontent.com/jmnote/mywsl/main/scripts/git.sh | bash
+curl https://raw.githubusercontent.com/jmnote/mywsl/main/scripts/vim.sh | bash
+
+# main
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 cat <<EOF
