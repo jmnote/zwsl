@@ -1,6 +1,8 @@
 # mywsl
 
 ```
-curl -V || (apt update && apt install -y curl)
-curl https://raw.githubusercontent.com/jmnote/zwsl/main/init.sh | bash
+cd
+git clone https://raw.githubusercontent.com/jmnote/zwsl
+cd zwsl
+bash init.sh
 ```
