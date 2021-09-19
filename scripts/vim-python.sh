@@ -1,56 +1,44 @@
 #!/bin/bash
 
 # pre
-bash ~/zwsl/scripts/vim.sh
+vim --version | grep +python3 || apt-get install -y vim-gtk
 
 # main
 rm -rf ~/.vim/bundle/Vundle.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 cat <<EOF > ~/.vimrc
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-"Vundle을 포함하도록 런타임 경로 설정 및 초기화
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
-"--------------------------------------------Plugin 시작
-
+""""
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'   " 최초 번들 설정
-Plugin 'davidhalter/jedi-vim'   " python 자동완성 Plugin
-let g:jedi#show_call_signatures=0       " 자세히 설명하는 창을 보여준다 1=활성화, 0=비>활성화
-let g:jedi#popup_select_first="0"       " 자동완성시 자동팝업 등장 x
-let g:jedi#force_py_version=3           " 자동완성 3 = python3 , 2 = python2
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'davidhalter/jedi-vim'
+autocmd FileType python setlocal completeopt-=preview
 
-Plugin 'hynek/vim-python-pep8-indent'   " python 자동 들여쓰기 Plugin
-filetype plugin indent on               " python 자동 들여쓰기 on
+Plugin 'hynek/vim-python-pep8-indent'
+filetype plugin indent on
 
-Plugin 'nvie/vim-flake8'                " python 문법 검사 plugin
-" let g:syntastic_python_checkers=['flake8']        " ↓ 실행시 현재줄 주석 해제필요    
-" let g:syntastic_python_flake8_args='--ignore='    " 무시하고자 하는 errorcode
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()
-
-"---------------------------------------------Plugin 종료
-
-"--------------------------------------------- vim 기본 설정
+""""
 
 if has("syntax")
-syntax on           "구문 강조
+syntax on
 endif
-set t_Co=256        "구문강조 색 변경
+set t_Co=256
 set encoding=utf-8
-set nu              "Line 출력
-set tabstop=4       "<Tab> key 4칸 이동
-set cursorline      "현재 줄 강조
+set number
+set tabstop=4
+set cursorline
 
-"-------------------------------------------- vim 기본 설정 끝
+set laststatus=2
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
-"--------------------------------------------맨밑 상태바 표시 향상
-set laststatus=2    "두줄로 표시
-set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\  "현재 라인 위치 출력
-"------------------------------------------- au filetype (파일타입지정)
+""""
 au FileType python map <f2> : !python3 %
 EOF
