@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # pre
-bash ~/.zwsl/scripts/vim.sh
+bash ~/zwsl/scripts/vim.sh
 
 # main
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
