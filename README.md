@@ -1,4 +1,4 @@
-# mywsl
+# zwsl
 
 ```
 git version || (apt update && apt install -y git)
